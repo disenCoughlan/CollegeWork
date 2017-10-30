@@ -9,7 +9,7 @@ import java.io.IOException;
 public class VendingMachineController{
     public Label selectionMessage;
     private String currentSelection = new String();
-
+    private float ammountInserted = 0;
 
     public void openStockControl(ActionEvent actionEvent) throws Exception
     {
@@ -35,5 +35,28 @@ public class VendingMachineController{
     }
 
     public void selectCoinKey(ActionEvent actionEvent) {
+        String value = ((Button) actionEvent.getSource()).getText();
+        System.out.println(value);
+        switch (value){
+            case "5c":
+                ammountInserted += 0.05f;
+                break;
+            case "10c":
+                ammountInserted += 0.10f;
+                break;
+            case "20c":
+                ammountInserted += 0.20f;
+                break;
+            case "50c":
+                ammountInserted += 0.50f;
+                break;
+            case "1E":
+                ammountInserted += 1;
+                break;
+            case "2E":
+                ammountInserted += 2;
+                break;
+        }
+        System.out.println(ammountInserted);
     }
 }
