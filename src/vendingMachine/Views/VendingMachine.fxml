@@ -12,7 +12,12 @@
             >
 
     <GridPane AnchorPane.rightAnchor="0"
-              translateY="25"
+              translateY="10">
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="0.00E" fx:id="amountInsertedLabel"/>
+        <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="Refund" onAction="#returnMoney"/>
+    </GridPane>
+    <GridPane AnchorPane.rightAnchor="0"
+              translateY="100"
               prefHeight="75">
         <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="5c" onAction="#selectCoinKey"/>
         <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="10c" onAction="#selectCoinKey"/>
@@ -22,7 +27,7 @@
         <Button GridPane.rowIndex="1" GridPane.columnIndex="2" text="2E" onAction="#selectCoinKey"/>
     </GridPane>
     <GridPane AnchorPane.rightAnchor="1"
-              translateY="100"
+              translateY="175"
               prefHeight="100">
         <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="1" onAction="#selectKey"/>
         <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="2" onAction="#selectKey"/>

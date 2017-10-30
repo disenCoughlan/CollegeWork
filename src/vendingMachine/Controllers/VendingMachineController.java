@@ -10,6 +10,7 @@ import java.math.MathContext;
 
 public class VendingMachineController{
     public Label selectionMessage;
+    public Label amountInsertedLabel;
     private String currentSelection = new String();
     private BigDecimal ammountInserted = new BigDecimal(0.00);
 
@@ -59,7 +60,16 @@ public class VendingMachineController{
                 ammountInserted = ammountInserted.add(new BigDecimal(2.00d));
                 break;
         }
+        DisplayAmountInserted();
+    }
+
+    public void returnMoney(ActionEvent actionEvent) {
+        ammountInserted = new BigDecimal(0);
+        DisplayAmountInserted();
+    }
+
+    private void DisplayAmountInserted(){
         ammountInserted = ammountInserted.setScale(2,BigDecimal.ROUND_DOWN);
-        System.out.println(ammountInserted);
+        amountInsertedLabel.setText(ammountInserted + "E");
     }
 }
