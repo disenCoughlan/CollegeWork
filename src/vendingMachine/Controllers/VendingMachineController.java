@@ -5,11 +5,13 @@ import javafx.scene.control.*;
 import vendingMachine.Managers.SceneManager;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.MathContext;
 
 public class VendingMachineController{
     public Label selectionMessage;
     private String currentSelection = new String();
-    private float ammountInserted = 0;
+    private BigDecimal ammountInserted = new BigDecimal(0.00);
 
     public void openStockControl(ActionEvent actionEvent) throws Exception
     {
@@ -39,24 +41,25 @@ public class VendingMachineController{
         System.out.println(value);
         switch (value){
             case "5c":
-                ammountInserted += 0.05f;
+                ammountInserted = ammountInserted.add(new BigDecimal(0.05d));
                 break;
             case "10c":
-                ammountInserted += 0.10f;
+                ammountInserted = ammountInserted.add(new BigDecimal(0.10d));
                 break;
             case "20c":
-                ammountInserted += 0.20f;
+                ammountInserted = ammountInserted.add(new BigDecimal(0.20d));
                 break;
             case "50c":
-                ammountInserted += 0.50f;
+                ammountInserted = ammountInserted.add(new BigDecimal(0.50d));
                 break;
             case "1E":
-                ammountInserted += 1;
+                ammountInserted = ammountInserted.add(new BigDecimal(1.00d));
                 break;
             case "2E":
-                ammountInserted += 2;
+                ammountInserted = ammountInserted.add(new BigDecimal(2.00d));
                 break;
         }
+        ammountInserted = ammountInserted.setScale(2,BigDecimal.ROUND_DOWN);
         System.out.println(ammountInserted);
     }
 }
