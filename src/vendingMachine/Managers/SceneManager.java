@@ -1,9 +1,8 @@
 package vendingMachine.Managers;
 
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import vendingMachine.Scenes.StockScene;
-import vendingMachine.Scenes.VScene;
+import vendingMachine.Scenes.IScene;
 import vendingMachine.Scenes.VendingMachineScene;
 
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.util.List;
 public class SceneManager {
 
     public static Stage VendingMachineStage;
-    private static List<VScene> Scenes = new ArrayList<VScene>(){{
+    private static List<IScene> Scenes = new ArrayList<IScene>(){{
         try {
             add(new StockScene());
             add(new VendingMachineScene());
@@ -29,7 +28,7 @@ public class SceneManager {
     }
 
     public static void SwitchToScene(String name) throws IOException {
-        VScene desiredScene = Scenes.stream().filter(x -> x.GetName() == name).findFirst().orElse(new VendingMachineScene());
+        IScene desiredScene = Scenes.stream().filter(x -> x.GetName() == name).findFirst().orElse(new VendingMachineScene());
         VendingMachineStage.setScene(desiredScene.GetScene());
         VendingMachineStage.setTitle(desiredScene.GetName());
     }

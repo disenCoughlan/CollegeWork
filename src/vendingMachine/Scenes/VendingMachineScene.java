@@ -3,12 +3,10 @@ package vendingMachine.Scenes;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import vendingMachine.Controllers.VendingMachineController;
-import vendingMachine.StartUp;
 
 import java.io.IOException;
 
-public class VendingMachineScene implements VScene {
+public class VendingMachineScene implements IScene {
 
     private String SceneName = "VendingMachine";
 
