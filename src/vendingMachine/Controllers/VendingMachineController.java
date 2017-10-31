@@ -11,6 +11,7 @@ import java.math.MathContext;
 public class VendingMachineController{
     public Label selectionMessage;
     public Label amountInsertedLabel;
+    public Label inputedKey;
     private String currentSelection = new String();
     private BigDecimal ammountInserted = new BigDecimal(0.00);
 
@@ -23,11 +24,13 @@ public class VendingMachineController{
     {
         String value = ((Button) actionEvent.getSource()).getText();
         currentSelection = currentSelection + value;
+        inputedKey.setText(currentSelection);
         System.out.println(currentSelection);
     }
 
     public void clearSelection(ActionEvent actionEvent) {
         currentSelection = new String();
+        inputedKey.setText("");
     }
 
     public void acceptSelection(ActionEvent actionEvent) {
