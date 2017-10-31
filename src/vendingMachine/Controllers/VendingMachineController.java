@@ -25,7 +25,6 @@ public class VendingMachineController{
         String value = ((Button) actionEvent.getSource()).getText();
         currentSelection = currentSelection + value;
         inputedKey.setText(currentSelection);
-        System.out.println(currentSelection);
     }
 
     public void clearSelection(ActionEvent actionEvent) {
@@ -74,5 +73,9 @@ public class VendingMachineController{
     private void DisplayAmountInserted(){
         ammountInserted = ammountInserted.setScale(2,BigDecimal.ROUND_DOWN);
         amountInsertedLabel.setText(ammountInserted + "E");
+    }
+
+    public void openStock(ActionEvent actionEvent) throws Exception {
+        SceneManager.SwitchToScene("Stock");
     }
 }
