@@ -32,7 +32,7 @@ public class VendingMachineController{
         inputedKey.setText("");
     }
 
-    public void acceptSelection(ActionEvent actionEvent) {
+    public void acceptSelection(ActionEvent actionEvent) {//this is doing nothing but write ramdom text !!
         if(currentSelection.length() == 2)
             selectionMessage.setText("You have selected " + currentSelection + "It will cost " + 2.0f);
         else
@@ -60,7 +60,7 @@ public class VendingMachineController{
                 break;
             case "2E":
                 ammountInserted = ammountInserted.add(new BigDecimal(2.00d));
-                break;
+                break;//do we need a default rout?
         }
         DisplayAmountInserted();
     }
@@ -78,4 +78,6 @@ public class VendingMachineController{
     public void openStock(ActionEvent actionEvent) throws Exception {
         SceneManager.SwitchToScene("Stock");
     }
+
+
 }

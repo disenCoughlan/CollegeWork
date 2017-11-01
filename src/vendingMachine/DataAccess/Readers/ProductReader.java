@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ProductReader {
 
 
-    public ArrayList<Product> LoadProducts(){
+    public ArrayList<Product> LoadProducts(){//where does you enter the list?
         return new ArrayList<Product>(){{
             new Product(00, "Tayto Original", new BigDecimal(0.5));
             new Product(00, "Tayto Original", new BigDecimal(0.5));
