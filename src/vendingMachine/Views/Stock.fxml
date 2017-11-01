@@ -18,6 +18,6 @@
               prefWidth="400">
         <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Walkers cheese and onion" fx:id="listedItem0"/>
         <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="Add Stock" onAction="#listedItem"/>
-        <Label GridPane.rowIndex="0" GridPane.columnIndex="1" text="walkers cheese and onion" fx:id="listedItem1"/>//i think i am wrong with this.
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="1" text="walkers cheese and onion" fx:id="listedItem1"/><!--i think i am wrong with this.-->
     </GridPane>
 </AnchorPane>
