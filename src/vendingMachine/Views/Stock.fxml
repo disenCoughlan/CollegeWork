@@ -11,18 +11,27 @@
             fx:controller="vendingMachine.Controllers.StockController"
             prefHeight="400.0" prefWidth="600.0"
             stylesheets="/vendingMachine/StyleSheets/App.css">
-    <Button text="Go to Vending Machine" onAction="#openVendingMachine"/>
-    <GridPane AnchorPane.rightAnchor="0"
+    <GridPane AnchorPane.topAnchor="0"
               translateY="0"
               prefHeight="400"
               prefWidth="400">
-        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Walkers cheese and onion" fx:id="listedItem0"/>
-        <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="Add Stock" onAction="#listedItem"/>
-        <Label GridPane.rowIndex="0" GridPane.columnIndex="1" text="walkers cheese and onion" fx:id="listedItem1"/><!--i think i am wrong with this. and how do you set the text size?-->
+        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Product location"/>
+        <TextField GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="productLocationField" />
+        <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Product Name"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="productNameField" />
+        <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Product Price"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="productPriceField" />
+        <Button GridPane.rowIndex="3" onAction="#addProduct" text="Add Product"/>
     </GridPane>
-    <GridPane AnchorPane.leftAnchor="1"
-              translateY="25"
-              prefHeight="25">
+    <GridPane AnchorPane.topAnchor="2"
+              translateY="125">
+        <Label GridPane.rowIndex="1" fx:id="validationErrorLabel"/>
+        <Label GridPane.rowIndex="2" fx:id="SuccessNotification"/>
         <!--<Label GridPane.rowIndex="0"GridPane.columnIndex="0" text="Balance of machine is " fx:id="balanceOfMachine"/>-->
     </GridPane>
+    <GridPane AnchorPane.bottomAnchor="3">
+        <Button GridPane.rowIndex="1" onAction="#openVendingMachine" text="Vending Machine"/>
+        <!--<Label GridPane.rowIndex="0"GridPane.columnIndex="0" text="Balance of machine is " fx:id="balanceOfMachine"/>-->
+    </GridPane>
+
 </AnchorPane>
