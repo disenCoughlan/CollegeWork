@@ -11,7 +11,7 @@ import java.math.MathContext;
 public class VendingMachineController{
     public Label selectionMessage;
     public Label amountInsertedLabel;
-    public Label inputedKey;
+    public Label selectedProductCode;
     private String currentSelection = new String();
     private BigDecimal ammountInserted = new BigDecimal(0.00);
 
@@ -22,14 +22,16 @@ public class VendingMachineController{
 
     public void selectKey(ActionEvent actionEvent)
     {
-        String value = ((Button) actionEvent.getSource()).getText();
-        currentSelection = currentSelection + value;
-        inputedKey.setText(currentSelection);
+        if(currentSelection.length() < 2){
+            String value = ((Button) actionEvent.getSource()).getText();
+            currentSelection = currentSelection + value;
+            selectedProductCode.setText(currentSelection);
+        }
     }
 
     public void clearSelection(ActionEvent actionEvent) {
         currentSelection = new String();
-        inputedKey.setText("");
+        selectedProductCode.setText("");
     }
 
     public void acceptSelection(ActionEvent actionEvent) {//this is doing nothing but write ramdom text !!

@@ -10,16 +10,6 @@
             prefWidth="600"
             prefHeight="400"
             >
-    <GridPane AnchorPane.rightAnchor="3"
-          translateY="275"
-          prefHeight="25">
-        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="" fx:id="inputedKey"/>
-    </GridPane>
-    <GridPane AnchorPane.rightAnchor="4"
-              translateY="300">
-        <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Stock Page" onAction="#openStock"/>
-    </GridPane>
-
     <GridPane AnchorPane.rightAnchor="0"
               translateY="10">
         <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="0.00E" fx:id="amountInsertedLabel"/>
@@ -50,6 +40,11 @@
         <Button GridPane.rowIndex="3" GridPane.columnIndex="1" text="0" onAction="#selectKey"/>
         <Button GridPane.rowIndex="3" GridPane.columnIndex="0" text="N" onAction="#clearSelection"/>
         <Button GridPane.rowIndex="3" GridPane.columnIndex="2" text="Y" onAction="#acceptSelection"/>
+        <Label GridPane.rowIndex="4"  text="" fx:id="selectedProductCode"/>
+    </GridPane>
+    <GridPane AnchorPane.rightAnchor="4"
+              translateY="350">
+        <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Stock Page" onAction="#openStock"/>
     </GridPane>
 
     <Label GridPane.rowIndex="4" fx:id="selectionMessage"/>
