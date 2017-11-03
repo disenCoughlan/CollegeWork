@@ -32,8 +32,18 @@ public class StockController {
             System.out.println(e.getMessage());
             errorMessages.append(e.getMessage() + "\n");
         }
-        String productName = "";
-        BigDecimal productPrice;
+        try {
+            String productName = getProductName();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            errorMessages.append(e.getMessage()+ "\n");
+        }
+        try {
+            BigDecimal productPrice = getProductPrice();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            errorMessages.append(e.getMessage()+ "\n");
+        }
 
         validationErrorLabel.setText(errorMessages.toString());
         if(errorMessages.toString() != null  || errorMessages.toString().length() > 0)
@@ -53,5 +63,31 @@ public class StockController {
         }
         throw new Exception("Product location is not valid");
     }
+    public String getProductName () throws Exception{
+        if (productNameField.getText()!= null && productNameField.getText()!="")
+        {
+            try {
+                boolean hasMatch = Pattern.matches("[a-z,A-Z,]", productPriceField.getText());
+                if (hasMatch)
+                    return new String(productNameField.getText());
+            }catch (Exception e){
+                    throw new Exception("Name is not valid");
+                }
+            }
+            throw new Exception("Product name is not valid");
+        }
     //(^[0-9]?\.?[0-9]?[0-9]$) pattern for price
+    public BigDecimal getProductPrice() throws Exception{
+        if (productPriceField.getText()!= null && productPriceField.getText() != "")
+        {
+         try {
+             boolean hasMatch = Pattern.matches("^[0-9]?\\.?[0-9]?[0-9]$",productPriceField.getText());
+             if (hasMatch)
+                 return BigDecimal.valueOf(Double.parseDouble(productPriceField.getText()));
+         }catch (Exception e){
+             throw new Exception("not a valid price");
+         }
+        }
+        throw new Exception("Product price is not valid");
+    }
 }
