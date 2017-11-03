@@ -67,7 +67,7 @@ public class StockController {
         if (productNameField.getText()!= null && productNameField.getText()!="")
         {
             try {
-                boolean hasMatch = Pattern.matches("[a-z,A-Z,]", productPriceField.getText());
+                boolean hasMatch = Pattern.matches("[a-z,A-Z,]", productNameField.getText());
                 if (hasMatch)
                     return new String(productNameField.getText());
             }catch (Exception e){
