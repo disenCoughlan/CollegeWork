@@ -20,7 +20,6 @@ public class StockScene implements IScene {
     {
         return Scene;
     }
-
     @Override
     public String GetName() {
         return SceneName;

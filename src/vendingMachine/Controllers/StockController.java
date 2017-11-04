@@ -1,7 +1,9 @@
 package vendingMachine.Controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import vendingMachine.Managers.SceneManager;
 
@@ -16,6 +18,8 @@ public class StockController {
     public TextField productPriceField;
     public Label validationErrorLabel;
     public Label SuccessNotification;
+    public ListView productList;
+    private ListView<String>listView;
 
     public void openVendingMachine(ActionEvent actionEvent) throws Exception
     {
@@ -46,8 +50,13 @@ public class StockController {
         }
 
         validationErrorLabel.setText(errorMessages.toString());
-        if(errorMessages.toString() != null  || errorMessages.toString().length() > 0)
+        if(errorMessages.toString() != null  || errorMessages.toString().length() > 0){
             SuccessNotification.setText("Product Added");
+        }
+            else {
+            SuccessNotification.setText("Product Not Added");
+        }
+            return;
     }
 
     public int getProductLocation() throws Exception {
@@ -89,5 +98,9 @@ public class StockController {
          }
         }
         throw new Exception("Product price is not valid");
+    }
+    public void setProductList(){
+        ObservableList<String> items =listView.getItems();
+        //items.add ();
     }
 }
