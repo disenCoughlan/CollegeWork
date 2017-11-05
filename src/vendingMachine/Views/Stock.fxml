@@ -32,9 +32,7 @@
     </GridPane>
     <GridPane AnchorPane.topAnchor="4" translateY="175" prefHeight="200">
         <VBox>
-            <children>
-                <ListView fx:id="productList"/>
-            </children>
+            <TextArea fx:id="ProductList"/>
         </VBox>
     </GridPane>
     <GridPane AnchorPane.bottomAnchor="3" translateX="350">

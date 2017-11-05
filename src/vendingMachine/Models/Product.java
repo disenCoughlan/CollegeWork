@@ -3,18 +3,18 @@ package vendingMachine.Models;
 import java.math.BigDecimal;
 
 public class Product {
-    private int ProductId;
+    private int ProductLocation;
     private String ProductName;
     private BigDecimal ProductPrice;
 
     public Product(int productId, String productName, BigDecimal productPrice){
-        ProductId = productId;
+        ProductLocation = productId;
         ProductName = productName;
         ProductPrice = productPrice;
     }
 
-    public int getProductId() {
-        return ProductId;
+    public int getProductLocation() {
+        return ProductLocation;
     }
 
     public String getProductName() {
@@ -27,7 +27,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return new String("Product Id: " + getProductName() +
+        return new String("Product Location: " + getProductLocation() +
                           ", Product Name: " + getProductName() +
                           ", Product Price: " + getProductPrice());
     }

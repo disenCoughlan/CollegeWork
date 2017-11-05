@@ -1,13 +1,17 @@
 package vendingMachine.Models;
 
+import vendingMachine.DataAccess.Readers.ProductReader;
+import vendingMachine.DataAccess.Writers.ProductWriter;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class VendingMachine {
     private BigDecimal VendingMachineBalance;
-    private List<Product> Products;
+    private ArrayList<Product> Products;
 
-    public VendingMachine(BigDecimal vendingMachineBalance, List<Product> products){
+    public VendingMachine(BigDecimal vendingMachineBalance, ArrayList<Product> products){
 
         VendingMachineBalance = vendingMachineBalance;
         Products = products;
@@ -17,11 +21,18 @@ public class VendingMachine {
         return VendingMachineBalance;
     }
 
-    public List<Product> getProducts() {
+    public ArrayList<Product> getProducts() throws Exception {
+        Products = ProductReader.LoadProducts();
         return Products;
     }
 
-    public void RemoveProduct(Product product){
-        Products.remove(product);
+    public void RemoveProduct(Product product) throws Exception {
+        ProductWriter.RemoveProduct(product);
+        Products = ProductReader.LoadProducts();
+    }
+
+    public void AddProduct (Product product)throws Exception{
+        ProductWriter.AddProduct(product);
+        Products = ProductReader.LoadProducts();
     }
 }

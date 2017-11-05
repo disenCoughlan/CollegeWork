@@ -1,23 +1,25 @@
 package vendingMachine.Managers;
 
 import org.jetbrains.annotations.Nullable;
+import vendingMachine.DataAccess.DataHandler;
 import vendingMachine.Models.Product;
 import vendingMachine.Models.VendingMachine;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class VendingMachineManager {
-    private static VendingMachine VendingMachine;
+    private static VendingMachine VendingMachine ;
 
-    public static void initVendingMachine(){
+    public static void initVendingMachine() throws Exception {
+        VendingMachine = new VendingMachine(new BigDecimal(100.00), DataHandler.GetProductsFromFile());
     }
 
     @Nullable
-    public static Product TryPurchaseProduct(int productId, BigDecimal currentInsertedAmount)
-    {
+    public static Product TryPurchaseProduct(int productId, BigDecimal currentInsertedAmount) throws Exception {
         Product product = VendingMachine.getProducts()
                 .stream()
-                .filter(x -> x.getProductId() == productId)
+                .filter(x -> x.getProductLocation() == productId)
                 .findFirst()
                 .orElse(null);
 
@@ -26,5 +28,13 @@ public class VendingMachineManager {
 
         VendingMachine.RemoveProduct(product);
         return product;
+    }
+
+    public static void TryAddProduct(Product product) throws Exception {
+        VendingMachine.AddProduct(product);
+    }
+
+    public static ArrayList<Product> TryGetProducts()throws Exception{
+        return VendingMachine.getProducts();
     }
 }
