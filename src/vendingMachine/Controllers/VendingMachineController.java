@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
+
 public class VendingMachineController{
     public Label selectionMessage;
     public Label amountInsertedLabel;
@@ -35,8 +36,8 @@ public class VendingMachineController{
     }
 
     public void acceptSelection(ActionEvent actionEvent) {//this is doing nothing but write ramdom text !!
-        if(currentSelection.length() == 2)
-            selectionMessage.setText("You have selected " + currentSelection + "It will cost " + 2.0f);
+        if(currentSelection.length() == 2 && currentSelection.equals("11"))
+            selectionMessage.setText("You have selected " + currentSelection + " It will cost "); //+ productPrice now this would be usefull but i dont know how to link it sorry
         else
             selectionMessage.setText("You have entered an incorrect value.");
     }
