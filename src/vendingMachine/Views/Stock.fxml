@@ -16,15 +16,30 @@
               translateY="0"
               prefHeight="400"
               prefWidth="400">
-        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Product location"/>
-        <TextField GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="productLocationField" />
-        <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Product Name"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="productNameField" />
-        <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Product Price"/>
-        <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="productPriceField" />
-        <Label GridPane.rowIndex="3" GridPane.columnIndex="0" text="Product Stock"/>
-        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="productStockField"/>
-        <Button GridPane.rowIndex="4" onAction="#addProduct" text="Add Product"/>
+       <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="11" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="0" GridPane.columnIndex="1" text="12" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="0" GridPane.columnIndex="2" text="13" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="0" GridPane.columnIndex="3" text="14" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="1" GridPane.columnIndex="0" text="21" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="1" GridPane.columnIndex="1" text="22" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="1" GridPane.columnIndex="2" text="23" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="1" GridPane.columnIndex="3" text="24" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="2" GridPane.columnIndex="0" text="31" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="2" GridPane.columnIndex="1" text="32" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="2" GridPane.columnIndex="2" text="33" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="2" GridPane.columnIndex="3" text="34" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="3" GridPane.columnIndex="0" text="41" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="3" GridPane.columnIndex="1" text="42" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="3" GridPane.columnIndex="2" text="43" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="3" GridPane.columnIndex="3" text="44" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="4" GridPane.columnIndex="0" text="51" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="4" GridPane.columnIndex="1" text="52" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="4" GridPane.columnIndex="2" text="53" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="4" GridPane.columnIndex="3" text="54" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="5" GridPane.columnIndex="3" text="61" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="5" GridPane.columnIndex="3" text="62" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="5" GridPane.columnIndex="3" text="63" onAction="#addProduct"/>
+       <Button GridPane.rowIndex="5" GridPane.columnIndex="3" text="64" onAction="#addProduct"/>
     </GridPane>
     <GridPane AnchorPane.topAnchor="2"
               translateY="125">

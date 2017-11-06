@@ -3,6 +3,7 @@ package vendingMachine.Managers;
 import org.jetbrains.annotations.Nullable;
 import vendingMachine.DataAccess.DataHandler;
 import vendingMachine.Models.Product;
+import vendingMachine.Models.ProductType;
 import vendingMachine.Models.VendingMachine;
 
 import java.math.BigDecimal;
@@ -30,11 +31,15 @@ public class VendingMachineManager {
         return product;
     }
 
-    public static void TryAddProduct(Product product) throws Exception {
+    public static void TryAddProduct(ProductType product) throws Exception {
         VendingMachine.AddProduct(product);
     }
 
     public static ArrayList<Product> TryGetProducts()throws Exception{
         return VendingMachine.getProducts();
+    }
+
+    public static ProductType GetProductType(String Identifier){
+        return VendingMachine.GetProductType(Identifier);
     }
 }
