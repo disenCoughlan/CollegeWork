@@ -25,6 +25,7 @@ public class StockController {
     public Label validationErrorLabel;
     public Label SuccessNotification;
     public TextArea ProductList;
+    public TextField productStockField;
 
     @FXML
     protected void initialize() throws Exception {
@@ -58,13 +59,25 @@ public class StockController {
         return;
     }
 
-
+    private int getProductStock ()throws Exception{
+        if (productStockField.getText()!= null && productStockField.getText()!= "" && productStockField.getText().length()==2)
+        {
+            try{
+                boolean hasMatch = Pattern.matches("^[0-9][0-9]$",productStockField.getText());
+                        if(hasMatch)
+                            return Integer.parseInt(productPriceField.getText());
+            }catch (Exception e){
+                throw new Exception("not valid stock number");
+            }
+        }
+        throw new Exception("Product stock area not valid");
+    }
 
     private int getProductLocation() throws Exception {
         if(productLocationField.getText() != null && productLocationField.getText() != "" && productLocationField.getText().length() == 2 )
         {
             try{
-                boolean hasMatch = Pattern.matches("^[0-4][0-2]$", productLocationField.getText());
+                boolean hasMatch = Pattern.matches("^[0-9][0-9]$", productLocationField.getText());
                 if(hasMatch )
                     return Integer.parseInt(productLocationField.getText());
             }catch (Exception e){

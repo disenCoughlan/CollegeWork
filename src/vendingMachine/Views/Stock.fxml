@@ -22,7 +22,9 @@
         <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="productNameField" />
         <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Product Price"/>
         <TextField GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="productPriceField" />
-        <Button GridPane.rowIndex="3" onAction="#addProduct" text="Add Product"/>
+        <Label GridPane.rowIndex="3" GridPane.columnIndex="0" text="Product Stock"/>
+        <TextField GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="productStockField"/>
+        <Button GridPane.rowIndex="4" onAction="#addProduct" text="Add Product"/>
     </GridPane>
     <GridPane AnchorPane.topAnchor="2"
               translateY="125">
@@ -32,7 +34,7 @@
     </GridPane>
     <GridPane AnchorPane.topAnchor="4" translateY="175" prefHeight="200">
         <VBox>
-            <TextArea fx:id="ProductList"/>
+            <TextArea editable="false" fx:id="ProductList"/>
         </VBox>
     </GridPane>
     <GridPane AnchorPane.bottomAnchor="3" translateX="350">
