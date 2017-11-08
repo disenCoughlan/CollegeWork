@@ -42,7 +42,7 @@ public class VendingMachineController{
     }
 
     public void acceptSelection(ActionEvent actionEvent) {//this is doing nothing but write ramdom text !!
-        if(currentSelection.length() == 2 && currentSelection.equals(11))
+        if(currentSelection.length() == 2)
             //VendingMachine.getProducts();this bit i found realy hard to do :(
         selectionMessage.setText("Enjoy your "+ currentSelection);
         else
