@@ -1,18 +1,15 @@
 package vendingMachine.Controllers;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import vendingMachine.Managers.SceneManager;
 import vendingMachine.Managers.VendingMachineManager;
 import vendingMachine.Models.Product;
-import vendingMachine.Models.ProductType;
-import vendingMachine.Models.VendingMachine;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class StockController {
     public Label validationErrorLabel;
@@ -34,7 +31,7 @@ public class StockController {
         validationErrorLabel.setText("");
         StringBuilder errorMessages = new StringBuilder();
         try {
-            ProductType type = VendingMachineManager.GetProductType(((Button)actionEvent.getSource()).getText());
+            Product type = VendingMachineManager.GetProductType(Integer.parseInt(((Button)actionEvent.getSource()).getText()));
             VendingMachineManager.TryAddProduct(type);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -61,5 +58,28 @@ public class StockController {
             stringBuilder.append(product.toString() + "\n");
         }
         ProductList.setText(stringBuilder.toString());
+    }
+
+    public void RemoveProduct(ActionEvent actionEvent) throws Exception {
+        SuccessNotification.setText("");
+        validationErrorLabel.setText("");
+        StringBuilder errorMessages = new StringBuilder();
+        try {
+            Product type = VendingMachineManager.GetProductType(Integer.parseInt(((Button)actionEvent.getSource()).getText()));
+            VendingMachineManager.TryRemoveProduct(type);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            errorMessages.append(e.getMessage() + "\n");
+        }
+
+        validationErrorLabel.setText(errorMessages.toString());
+        if(errorMessages.toString() != null  || errorMessages.toString().length() > 0){
+            SuccessNotification.setText("Product Removed");
+        }
+        else {
+            SuccessNotification.setText("Product Not Removed");
+        }
+        setProductList();
+        return;
     }
 }

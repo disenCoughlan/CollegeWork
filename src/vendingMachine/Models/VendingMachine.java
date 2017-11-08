@@ -13,42 +13,42 @@ public class VendingMachine {
     private ArrayList<Product> Products;
 
 
-    private ArrayList<ProductType> ProductTypes;
+    private ArrayList<Product> ProductTypes;
 
     public VendingMachine(BigDecimal vendingMachineBalance, ArrayList<Product> products){
 
         VendingMachineBalance = vendingMachineBalance;
         Products = products;
-        ProductTypes = new ArrayList<ProductType>();
-            ProductTypes.add(new ProductType("11", "Walkers cheese & onion", "1.50"));
-            ProductTypes.add(new ProductType("12", "Walkers cheese & onion", "1.50"));
-            ProductTypes.add(new ProductType("13", "Walkers ready salted", "1.50"));
-            ProductTypes.add(new ProductType("14", "Walkers ready salted", "1.50"));
-            ProductTypes.add(new ProductType("21", "McCoys flame grilled stake", "1.50"));
-            ProductTypes.add(new ProductType("22", "McCoys salt & malt vingar", "1.50"));
-            ProductTypes.add(new ProductType("23", "McCoys cheddar & onion", "1.50"));
-            ProductTypes.add(new ProductType("24", "Quavers", "1.50"));
-            ProductTypes.add(new ProductType("31", "M&M", "1.00"));
-            ProductTypes.add(new ProductType("32", "Minstrels", "1.00"));
-            ProductTypes.add(new ProductType("33", "Maltesers", "1.00"));
-            ProductTypes.add(new ProductType("34", "double decker", "1.00"));
-            ProductTypes.add(new ProductType("35", "Kit Kat", "1.00"));
-            ProductTypes.add(new ProductType("36", "Boost", "1.00"));
-            ProductTypes.add(new ProductType("37", "Twirl", "1.00"));
-            ProductTypes.add(new ProductType("38", "Wispa", "1.00"));
-            ProductTypes.add(new ProductType("41", "Pasta", "3.00"));
-            ProductTypes.add(new ProductType("42", "Ham and cheese", "2.00"));
-            ProductTypes.add(new ProductType("43", "Double cheese and onion", "2.00"));
-            ProductTypes.add(new ProductType("51", "Water", "1.00"));
-            ProductTypes.add(new ProductType("52", "Lucozade", "1.50"));
-            ProductTypes.add(new ProductType("53", "Engery drink", "1.50"));
-            ProductTypes.add(new ProductType("54", "Ribena", "1.50"));
-            ProductTypes.add(new ProductType("55", "Tropicana", "1.50"));
-            ProductTypes.add(new ProductType("56", "Coke botle", "1.50"));
-            ProductTypes.add(new ProductType("61", "Redbull", "2.00"));
-            ProductTypes.add(new ProductType("62", "Sprite", "1.00"));
-            ProductTypes.add(new ProductType("63", "Fanta", "1.00"));
-            ProductTypes.add(new ProductType("64", "Coke can", "1.00"));
+        ProductTypes = new ArrayList<Product>();
+            ProductTypes.add(new Product(11, "Walkers cheese & onion", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(12, "Walkers cheese & onion", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(13, "Walkers ready salted", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(14, "Walkers ready salted", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(21, "McCoys flame grilled stake", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(22, "McCoys salt & malt vingar", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(23, "McCoys cheddar & onion", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(24, "Quavers", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(31, "M&M", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(32, "Minstrels", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(33, "Maltesers", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(34, "double decker", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(35, "Kit Kat", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(36, "Boost", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(37, "Twirl", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(38, "Wispa", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(41, "Pasta", new BigDecimal("3.00")));
+            ProductTypes.add(new Product(42, "Ham and cheese", new BigDecimal("2.00")));
+            ProductTypes.add(new Product(43, "Double cheese and onion", new BigDecimal("2.00")));
+            ProductTypes.add(new Product(51, "Water", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(52, "Lucozade", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(53, "Engery drink", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(54, "Ribena", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(55, "Tropicana", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(56, "Coke botle", new BigDecimal("1.50")));
+            ProductTypes.add(new Product(61, "Redbull", new BigDecimal("2.00")));
+            ProductTypes.add(new Product(62, "Sprite", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(63, "Fanta", new BigDecimal("1.00")));
+            ProductTypes.add(new Product(64, "Coke can", new BigDecimal("1.00")));
 
     }
 
@@ -66,21 +66,19 @@ public class VendingMachine {
         Products = ProductReader.LoadProducts();
     }
 
-    public void AddProduct (ProductType productType)throws Exception{
-
-        Product product = new Product(Integer.parseInt(productType.getProductLocation()), productType.getProductName(), new BigDecimal(productType.getProductPrice()));
+    public void AddProduct (Product product)throws Exception{
         ProductWriter.AddProduct(product);
         Products = ProductReader.LoadProducts();
     }
 
-    public ArrayList<ProductType> GetProductTypes(){
+    public ArrayList<Product> GetProductTypes(){
         return ProductTypes;
     }
 
-    public ProductType GetProductType(String identifier){
-        Stream<ProductType> stream = ProductTypes
+    public Product GetProductType(int identifier){
+        Stream<Product> stream = ProductTypes
                 .stream()
-                .filter(x -> x.getProductLocation().compareTo(identifier) == 0);
+                .filter(x -> x.getProductLocation() == identifier);
         return stream.findFirst().orElse(null);
 
     }

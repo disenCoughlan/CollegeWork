@@ -31,7 +31,7 @@ public class VendingMachineManager {
         return product;
     }
 
-    public static void TryAddProduct(ProductType product) throws Exception {
+    public static void TryAddProduct(Product product) throws Exception {
         VendingMachine.AddProduct(product);
     }
 
@@ -39,7 +39,11 @@ public class VendingMachineManager {
         return VendingMachine.getProducts();
     }
 
-    public static ProductType GetProductType(String Identifier){
+    public static Product GetProductType(int Identifier){
         return VendingMachine.GetProductType(Identifier);
+    }
+
+    public static void TryRemoveProduct(Product product) throws Exception {
+        VendingMachine.RemoveProduct(product);
     }
 }
