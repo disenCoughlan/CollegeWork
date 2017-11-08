@@ -2,18 +2,25 @@ package vendingMachine.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import vendingMachine.Managers.SceneManager;
+import vendingMachine.Models.Product;
+import vendingMachine.Models.VendingMachine;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
+import static vendingMachine.Managers.VendingMachineManager.TryPurchaseProduct;
+import static vendingMachine.Managers.VendingMachineManager.initVendingMachine;
+
 public class VendingMachineController{
     public Label selectionMessage;
     public Label amountInsertedLabel;
     public Label selectedProductCode;
+    public Label image;
     private String currentSelection = new String();
-    private BigDecimal ammountInserted = new BigDecimal(0.00);
+    public BigDecimal ammountInserted = new BigDecimal(0.00);
 
     public void openStockControl(ActionEvent actionEvent) throws Exception
     {
@@ -35,8 +42,9 @@ public class VendingMachineController{
     }
 
     public void acceptSelection(ActionEvent actionEvent) {//this is doing nothing but write ramdom text !!
-        if(currentSelection.length() == 2)
-            selectionMessage.setText("You have selected " + currentSelection + "It will cost " + 2.0f);
+        if(currentSelection.length() == 2 && currentSelection.equals(11))
+            //VendingMachine.getProducts();this bit i found realy hard to do :(
+        selectionMessage.setText("Enjoy your "+ currentSelection);
         else
             selectionMessage.setText("You have entered an incorrect value.");
     }
