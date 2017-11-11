@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import vendingMachine.Managers.SceneManager;
+import vendingMachine.Managers.VendingMachineManager;
 import vendingMachine.Models.Product;
 import vendingMachine.Models.VendingMachine;
 
@@ -41,12 +42,19 @@ public class VendingMachineController{
         selectedProductCode.setText("");
     }
 
-    public void acceptSelection(ActionEvent actionEvent) {//this is doing nothing but write ramdom text !!
-        if(currentSelection.length() == 2)
-            //VendingMachine.getProducts();this bit i found realy hard to do :(
-        selectionMessage.setText("Enjoy your "+ currentSelection);
+    public void acceptSelection(ActionEvent actionEvent) throws Exception {//this is doing nothing but write ramdom text !!
+        if(currentSelection.length() == 2) {
+            Product product = VendingMachineManager.TryPurchaseProduct(Integer.parseInt(currentSelection), ammountInserted);
+            if(product == null)
+                selectionMessage.setText("Cannot purchase this product.");
+            else{
+                selectionMessage.setText(product.getProductName());
+                ammountInserted = ammountInserted.subtract( product.getProductPrice());
+                amountInsertedLabel.setText(ammountInserted.toString());
+            }
+        }
         else
-            selectionMessage.setText("You have entered an incorrect value.");
+            selectionMessage.setText("Cannot purchase " + currentSelection + ".");
     }
 
     public void selectCoinKey(ActionEvent actionEvent) {

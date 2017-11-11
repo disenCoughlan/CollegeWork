@@ -82,4 +82,7 @@ public class VendingMachine {
         return stream.findFirst().orElse(null);
 
     }
+
+    public void AddBalance(BigDecimal productPrice) {
+    }
 }

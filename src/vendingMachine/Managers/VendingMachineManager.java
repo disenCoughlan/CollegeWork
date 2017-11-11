@@ -24,11 +24,16 @@ public class VendingMachineManager {
                 .findFirst()
                 .orElse(null);
 
-        if(product == null || product.getProductPrice().doubleValue() > currentInsertedAmount.doubleValue())
-            return null;
-
-        VendingMachine.RemoveProduct(product);
-        return product;
+        if(product == null)
+            return new Product(00,"Product not available", new BigDecimal(0.00));
+        else if( product.getProductPrice().doubleValue() > currentInsertedAmount.doubleValue())
+            return new Product(00,"Unable to afford " + product.getProductName(), new BigDecimal(0.00));
+        else
+        {
+            VendingMachine.RemoveProduct(product);
+            VendingMachine.AddBalance(product.getProductPrice());
+            return product;
+        }
     }
 
     public static void TryAddProduct(Product product) throws Exception {
