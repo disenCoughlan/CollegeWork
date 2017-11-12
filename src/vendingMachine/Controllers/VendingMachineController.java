@@ -20,13 +20,12 @@ public class VendingMachineController{
     public Label amountInsertedLabel;
     public Label selectedProductCode;
     public Label image;
+    public Label balance;
     private String currentSelection = new String();
     public BigDecimal ammountInserted = new BigDecimal(0.00);
 
-    public void openStockControl(ActionEvent actionEvent) throws Exception
-    {
-        SceneManager.SwitchToScene("Stock");
-    }
+
+
 
     public void selectKey(ActionEvent actionEvent)
     {
@@ -51,6 +50,7 @@ public class VendingMachineController{
                 selectionMessage.setText(product.getProductName());
                 ammountInserted = ammountInserted.subtract( product.getProductPrice());
                 amountInsertedLabel.setText(ammountInserted.toString());
+                balance.setText(VendingMachineManager.getBalance().toString());
             }
         }
         else
