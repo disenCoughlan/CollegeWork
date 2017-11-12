@@ -41,7 +41,7 @@ public class VendingMachine {
             ProductTypes.add(new Product(41, "Pasta", new BigDecimal("3.00")));
             ProductTypes.add(new Product(42, "Pasta", new BigDecimal("3.00")));
             ProductTypes.add(new Product(43, "Ham and cheese", new BigDecimal("2.00")));
-            ProductTypes.add(new Product(4, "Double cheese and onion", new BigDecimal("2.00")));
+            ProductTypes.add(new Product(44, "Double cheese and onion", new BigDecimal("2.00")));
             ProductTypes.add(new Product(51, "Water", new BigDecimal("1.00")));
             ProductTypes.add(new Product(52, "Lucozade", new BigDecimal("1.50")));
             ProductTypes.add(new Product(53, "Engery drink", new BigDecimal("1.50")));
