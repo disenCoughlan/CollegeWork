@@ -40,6 +40,24 @@ public class DataHandler {
         }
         return products;
     }
+
+    public static void GetBalancesFromFile() throws Exception {
+        File file = new File(pathnameB);
+        if(file.exists())
+        {
+            try {
+                reader = new BufferedReader(new FileReader(pathnameB));
+                String line;
+                while ((line = reader.readLine())!= null){
+                    String[] balance = line.split("");
+                    balance.add(new Balance(new BigDecimal [Balance] ));
+                }
+            }catch (Exception e){
+                throw new Exception("an issue occurred when reading data from balance file")
+            }
+        }
+    }
+
     public static void WriteBalanceToFile(Balance balance)throws Exception{
         CreateFile(pathnameB);
         try {
@@ -98,5 +116,8 @@ public class DataHandler {
         if(!file.exists())
             file.createNewFile();
 
+    }
+
+    public static void RemoveBalance(Balance balance) {
     }
 }
