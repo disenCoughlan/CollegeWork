@@ -51,4 +51,5 @@ public class VendingMachineManager {
     public static void TryRemoveProduct(Product product) throws Exception {
         VendingMachine.RemoveProduct(product);
     }
+
 }

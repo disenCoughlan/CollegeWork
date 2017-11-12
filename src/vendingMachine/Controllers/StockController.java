@@ -5,16 +5,21 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import vendingMachine.Managers.SceneManager;
 import vendingMachine.Managers.VendingMachineManager;
+import vendingMachine.Models.Balance;
 import vendingMachine.Models.Product;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class StockController {
     public Label validationErrorLabel;
     public Label SuccessNotification;
     public TextArea ProductList;
+    public Label balanceAmountL;
+    public TextField balanceAmountTf;
 
     @FXML
     protected void initialize() throws Exception {
@@ -81,5 +86,12 @@ public class StockController {
         }
         setProductList();
         return;
+    }
+
+    public void RemoveBalance(ActionEvent actionEvent) throws Exception {
+        
+    }
+
+    public void AddBalance(ActionEvent actionEvent) throws Exception {
     }
 }
