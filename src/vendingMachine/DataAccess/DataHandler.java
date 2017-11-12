@@ -12,7 +12,7 @@ public class DataHandler {
     private static String directory = System.getProperty("user.dir");
     private static BufferedReader reader;
     private static String productFileName = "Product.csv";
-    private static String balanceFileName = "Balance.csv";
+    private static String balanceFileName = "Balance.txt";
     private static final String pathname = directory + "\\" + productFileName;
     private static int ProductLocation = 0;
     private static int ProductName = 1;
@@ -41,30 +41,32 @@ public class DataHandler {
         return products;
     }
 
-    public static void GetBalancesFromFile() throws Exception {
+    public static Balance GetBalancesFromFile() throws Exception {
         File file = new File(pathnameB);
         if(file.exists())
         {
             try {
                 reader = new BufferedReader(new FileReader(pathnameB));
-                String line;
-                while ((line = reader.readLine())!= null){
-                    String[] balance = line.split("");
-                    balance.add(new Balance(new BigDecimal [Balance] ));
-                }
+                String balance = reader.readLine();
+                reader.close();
+                return new Balance(new BigDecimal(balance));
             }catch (Exception e){
-                throw new Exception("an issue occurred when reading data from balance file")
+                throw new Exception("an issue occurred when reading data from balance file");
             }
         }
+        return new Balance(new BigDecimal("0.00"));
     }
 
     public static void WriteBalanceToFile(Balance balance)throws Exception{
         CreateFile(pathnameB);
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(pathnameB, true));
-            writer.append(new String(balance.getBalanceAmount() + "\n"));
+            Balance currentBalance = GetBalancesFromFile();
+            BigDecimal currentBalanceAmount = currentBalance.getBalanceAmount();
+            BigDecimal balanceToAdd = balance.getBalanceAmount();
+            Balance newBalance = new Balance(currentBalanceAmount.add(balanceToAdd));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(pathnameB, false));
+            writer.append(new String(newBalance.getBalanceAmount() + "\n"));
             writer.close();
-
         }
         catch (Exception e)
         {

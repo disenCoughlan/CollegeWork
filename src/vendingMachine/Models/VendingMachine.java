@@ -86,19 +86,19 @@ public class VendingMachine {
 
     }
 
-    public Balance GetBalance(BigDecimal identifier){
-
+    public Balance GetBalance() throws Exception {
+        return BalanceReader.LoadBalance();
     }
 
-    public void RemoveBalance(Balance balance) throws Exception {
+    private void RemoveBalance(Balance balance) throws Exception {
         BalanceWriter.RemoveBalance(balance);
-        Balances = BalanceReader.LoadBalances();
     }
 
     public void AddBalance (Balance balance)throws Exception{
         BalanceWriter.AddBalance(balance);
-        Balances = BalanceReader.LoadBalances();
+
     }
-    public void AddBalance(BigDecimal productPrice) {
+    public void AddBalance(BigDecimal productPrice) throws Exception {
+        AddBalance(new Balance(productPrice));
     }
 }
