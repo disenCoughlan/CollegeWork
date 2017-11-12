@@ -2,6 +2,7 @@ package vendingMachine.Managers;
 
 import org.jetbrains.annotations.Nullable;
 import vendingMachine.DataAccess.DataHandler;
+import vendingMachine.Models.Balance;
 import vendingMachine.Models.Product;
 import vendingMachine.Models.ProductType;
 import vendingMachine.Models.VendingMachine;
@@ -50,5 +51,13 @@ public class VendingMachineManager {
 
     public static void TryRemoveProduct(Product product) throws Exception {
         VendingMachine.RemoveProduct(product);
+    }
+
+    public static Balance GetBalance (){
+        try{
+            return VendingMachine.GetBalance();
+        }catch (Exception e){
+            return new Balance(new BigDecimal("0.00"));
+        }
     }
 }

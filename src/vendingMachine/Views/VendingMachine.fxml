@@ -91,4 +91,5 @@
          <Image url="@../Images/merchant204_combiplusfood_2.jpg" />
       </image>
        </ImageView>
+   <Label layoutX="244.0" layoutY="31.0" text=""  fx:id="Balance"/>
 </AnchorPane>
