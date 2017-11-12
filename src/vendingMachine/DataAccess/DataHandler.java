@@ -1,5 +1,6 @@
 package vendingMachine.DataAccess;
 
+import vendingMachine.Models.Balance;
 import vendingMachine.Models.Product;
 
 import java.io.*;
@@ -11,10 +12,12 @@ public class DataHandler {
     private static String directory = System.getProperty("user.dir");
     private static BufferedReader reader;
     private static String productFileName = "Product.csv";
+    private static String balanceFileName = "Balance.csv";
     private static final String pathname = directory + "\\" + productFileName;
     private static int ProductLocation = 0;
     private static int ProductName = 1;
     private static int ProductPrice = 2;
+    private static final String pathnameB = directory + "\\" + balanceFileName;
 
     public static ArrayList<Product> GetProductsFromFile() throws Exception {
         ArrayList<Product> products = new ArrayList<Product>();
@@ -36,6 +39,19 @@ public class DataHandler {
             }
         }
         return products;
+    }
+    public static void WriteBalanceToFile(Balance balance)throws Exception{
+        CreateFile(pathnameB);
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(pathnameB, true));
+            writer.append(new String(balance.getBalanceAmount() + "\n"));
+            writer.close();
+
+        }
+        catch (Exception e)
+        {
+            throw new Exception("Issue adding Balance to file");
+        }
     }
 
     public static void WriteProductToFile(Product product) throws Exception {
