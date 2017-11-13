@@ -97,7 +97,7 @@ public class VendingMachine {
 
     public void AddBalance (Balance balance)throws Exception{
         BalanceWriter.AddBalance(balance);
-        
+
     }
     public void AddBalance(BigDecimal productPrice) throws Exception {
         AddBalance(new Balance(productPrice));
