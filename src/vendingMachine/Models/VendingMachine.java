@@ -90,15 +90,17 @@ public class VendingMachine {
         return BalanceReader.LoadBalance();
     }
 
-    private void RemoveBalance(Balance balance) throws Exception {
+    public void RemoveBalance(Balance balance) throws Exception {
         BalanceWriter.RemoveBalance(balance);
+
     }
 
     public void AddBalance (Balance balance)throws Exception{
         BalanceWriter.AddBalance(balance);
-
+        
     }
     public void AddBalance(BigDecimal productPrice) throws Exception {
         AddBalance(new Balance(productPrice));
     }
+
 }

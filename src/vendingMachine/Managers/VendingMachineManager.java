@@ -60,4 +60,13 @@ public class VendingMachineManager {
             return new Balance(new BigDecimal("0.00"));
         }
     }
+    //public static Balance RemoveBalance(){
+       // try {
+       //     return VendingMachine.RemoveBalance();
+       // }
+       // catch (Exception e){
+       //     return new Balance(new BigDecimal("0.00"));
+       // }
+    //}
+
 }
