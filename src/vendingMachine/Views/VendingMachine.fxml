@@ -74,9 +74,7 @@
          <RowConstraints />
       </rowConstraints>
     </GridPane>
-
     <Label fx:id="selectionMessage" GridPane.rowIndex="4" />
-
     <GridPane translateY="20" AnchorPane.leftAnchor="3">
         <Label fx:id="image" />
       <columnConstraints>
