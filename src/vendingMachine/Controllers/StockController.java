@@ -11,6 +11,7 @@ import vendingMachine.Managers.SceneManager;
 import vendingMachine.Managers.VendingMachineManager;
 import vendingMachine.Models.Balance;
 import vendingMachine.Models.Product;
+import vendingMachine.Models.VendingMachine;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -90,11 +91,17 @@ public class StockController {
         return;
     }
 
-    public void RemoveBalance(ActionEvent actionEvent) {
-        VendingMachineManager.getBalance().getBalanceAmount();
+    public void RemoveBalance(ActionEvent actionEvent) throws Exception {
+        BigDecimal balanceToDeduct = new BigDecimal(balanceAmountTf.getText());
 
+        VendingMachineManager.SubtractBalance(balanceToDeduct);
+        balanceAmountL.setText(VendingMachineManager.getBalance().toString());
     }
 
-    public void AddBalance(ActionEvent actionEvent) {
+    public void AddBalance(ActionEvent actionEvent) throws Exception {
+        BigDecimal balanceToAdd = new BigDecimal(balanceAmountTf.getText());
+
+        VendingMachineManager.AddBalance(balanceToAdd);
+        balanceAmountL.setText(VendingMachineManager.getBalance().toString());
     }
 }

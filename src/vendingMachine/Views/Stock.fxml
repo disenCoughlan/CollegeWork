@@ -4,14 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.TextField?>
 <AnchorPane prefWidth="600.0" stylesheets="/vendingMachine/StyleSheets/App.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vendingMachine.Controllers.StockController">
-
     <GridPane AnchorPane.topAnchor="1">
         <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
             <Label text="Add Products"/>
@@ -87,23 +84,20 @@
             <Button onAction="#RemoveProduct" text="63" GridPane.columnIndex="2" GridPane.rowIndex="6" />
             <Button onAction="#RemoveProduct" text="64" GridPane.columnIndex="3" GridPane.rowIndex="6" />
         </GridPane>
-
-        <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2" >
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2" >
             <Label fx:id="validationErrorLabel" GridPane.rowIndex="1" />
             <Label fx:id="SuccessNotification" GridPane.rowIndex="2" />
-            <!--<Label GridPane.rowIndex="0"GridPane.columnIndex="0" text="Balance of machine is " fx:id="balanceOfMachine"/>-->
         </GridPane>
-
         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="balanceAmountL" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="balanceAmountTf" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Button onAction="#RemoveBalance" text="Remove Balance" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Button onAction="#AddBalance" text="Add Balance" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        </GridPane>
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
             <GridPane>
                 <Button onAction="#openVendingMachine" text="Vending Machine"  GridPane.columnIndex="1"/>
-                <Label text="Balance Amount" GridPane.columnIndex="2"/>
-                <Label fx:id="balanceAmountL" prefHeight="17.0" prefWidth="130.0" GridPane.columnIndex="3"/>
-                <Button onAction="#RemoveBalance" text="Remove Balance" GridPane.columnIndex="4"/>
-                <Button onAction="#AddBalance" text="Add Balance" GridPane.columnIndex="5"/>
-                <TextField fx:id="balanceAmountTf" GridPane.columnIndex="6"/>
             </GridPane>
-            <!--<Label GridPane.rowIndex="0"GridPane.columnIndex="0" text="Balance of machine is " fx:id="balanceOfMachine"/>-->
         </GridPane>
     </GridPane>
 </AnchorPane>
