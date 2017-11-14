@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 23.50
+=======
+110.50
+>>>>>>> parent of 1f86bfb... fixed balance

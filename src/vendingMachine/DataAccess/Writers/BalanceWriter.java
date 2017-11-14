@@ -12,4 +12,11 @@ public class BalanceWriter {
         }
 
     }
+    public static void  RemoveBalance (Balance balance){
+        try {
+            DataHandler.RemoveBalance(balance);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

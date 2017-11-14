@@ -60,14 +60,6 @@ public class VendingMachineManager {
         }
     }
 
-    public static void AddBalance(BigDecimal amount) throws Exception {
-        VendingMachine.AddBalance(amount);
-    }
-
-    public static void SubtractBalance(BigDecimal amount) throws Exception {
-        VendingMachine.AddBalance(new BigDecimal("-"+amount.toString()));
-    }
-
    // public static Balance RemoveBalance() {
    //     try {
    //         return VendingMachine.RemoveBalance();

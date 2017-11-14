@@ -119,4 +119,7 @@ public class DataHandler {
             file.createNewFile();
 
     }
+
+    public static void RemoveBalance(Balance balance) {
+    }
 }
